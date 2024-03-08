@@ -1,0 +1,22 @@
+version: "3.4"
+services:
+  drone_frontend:
+    container_name: drone_frontend
+    image: node:lts
+    working_dir: /var/www/html/app/
+    entrypoint: /bin/bash
+    ports:
+      - "8200:8200"
+    volumes:
+      - ./frontend/:/var/www/html/app
+    tty: true
+  drone_api:
+    container_name: drone_api
+    image: node:lts
+    working_dir: /var/www/html/app/
+    entrypoint: /bin/bash
+    ports:
+      - "8210:8210"
+    volumes:
+      - ./backend/:/var/www/html/app
+    tty: true
